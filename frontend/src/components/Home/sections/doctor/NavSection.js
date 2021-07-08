@@ -154,7 +154,6 @@ export default function NavSection() {
                             <Route path="/admin/doctors" component={()=><DoctorContent hospitalid={props.hospitalid} />} /> 
                             <Route path="/admin/settings" component={SettingsContent} /> */}
                             <Route path="/doctor/patients" component={()=><PatientContent appid={userID} hospitalid={hospitalID} />} /> 
-                            <Route path="/doctor/lists" component={()=><DoctorContent appid={userID} hospitalid={hospitalID} />} /> 
                             {/*<Route path="/admin/help" component={ProfileContent} /> 
                             <Route path="/admin/calendar" component={ProfileContent} /> 
                             <Route path="/admin/infra" component={ProfileContent} /> 
