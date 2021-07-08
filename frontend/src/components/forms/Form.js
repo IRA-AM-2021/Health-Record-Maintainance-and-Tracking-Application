@@ -1,5 +1,4 @@
 import React,{ useEffect, useState, useRef, createRef, useContext } from 'react'
-import axios from 'axios'
 import { uniqId } from '../Unique.js'
 import { Link, useHistory, Redirect } from 'react-router-dom'
 import LocalHospitalRoundedIcon from '@material-ui/icons/LocalHospitalRounded'
@@ -10,18 +9,13 @@ import EmailIcon from '@material-ui/icons/Email'
 import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid'
 import HttpsIcon from '@material-ui/icons/Https'
 import './../../styles/form.css'
-import Tooltip from "@material-ui/core/Tooltip"
-import { ActiveSite } from './../../index'
 import { Container, Button, Form, InputGroup, Row, Col, Spinner, Popover, OverlayTrigger } from 'react-bootstrap'
-import LockOpenIcon from '@material-ui/icons/LockOpen';
-import NoEncryptionIcon from '@material-ui/icons/NoEncryption';
 import { withStyles } from '@material-ui/core/styles';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Box from '@material-ui/core/Box';
 import { HospitalLoginForm } from './HospitalLoginForm'
 import { DoctorLoginForm } from './DoctorLoginForm'
+import { PatientLoginForm } from './PatientLoginForm'
 import vid from './../../videos/vid4.mp4'
 
 export default function Forms(props){
@@ -362,126 +356,14 @@ function simulateNetworkRequest() {
     return new Promise((resolve) => setTimeout(resolve, 2000));
 }
 
-let PatientLoginForm=()=>{
-    return(
-        <div>
-            <aside className="col-sm-4">
-                <div className="card">
-                    <article className="card-body">
-                        <h4 className="card-title mb-4 mt-1">Sign in ( Patient )</h4>
-                        <form>
-                            <div className="form-group">
-                                <label>Unique ID</label>
-                                <input name="" className="form-control" placeholder="Enter your unique ID or Email" type="text" />
-                            </div> 
-                            <div className="form-group">
-                                <label>OTP</label>
-                                <input className="form-control" placeholder="Enter the otp received on your registered mobile number" type="text" />
-                                <label>Your password</label>
-                                <input className="form-control" placeholder="******" type="password" />
-                            </div>
-                            <div className="form-group">
-                                <button type="submit" className="btn btn-primary btn-block"> Login  </button>
-                            </div>                                                           
-                        </form>
-                    </article>
-                </div>
-            </aside>
-        </div> 
-    );
-}
+                            // <div className="form-group">
+                            //     <label>Unique ID</label>
+                            //     <input name="" className="form-control" placeholder="Enter your unique ID or Email" type="text" />
+                            // </div> 
+                            // <div className="form-group">
+                            //     <label>OTP</label>
+                            //     <input className="form-control" placeholder="Enter the otp received on your registered mobile number" type="text" />
+                                
+  
 
 export {HospitalLoginForm,DoctorLoginForm,PatientLoginForm,HospitalRegisterForm};
-
-
-
-/* function FormExample() {
-  const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-  };
-
-  return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
-      <Form.Row>
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
-          <Form.Label>First name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="First name"
-            defaultValue="Mark"
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
-          <Form.Label>Last name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Last name"
-            defaultValue="Otto"
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-          <Form.Label>Username</Form.Label>
-          <InputGroup hasValidation>
-            <InputGroup.Prepend>
-              <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
-            </InputGroup.Prepend>
-            <Form.Control
-              type="text"
-              placeholder="Username"
-              aria-describedby="inputGroupPrepend"
-              required
-            />
-            <Form.Control.Feedback type="invalid">
-              Please choose a username.
-            </Form.Control.Feedback>
-          </InputGroup>
-        </Form.Group>
-      </Form.Row>
-      <Form.Row>
-        <Form.Group as={Col} md="6" controlId="validationCustom03">
-          <Form.Label>City</Form.Label>
-          <Form.Control type="text" placeholder="City" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="3" controlId="validationCustom04">
-          <Form.Label>State</Form.Label>
-          <Form.Control type="text" placeholder="State" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid state.
-          </Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="3" controlId="validationCustom05">
-          <Form.Label>Zip</Form.Label>
-          <Form.Control type="text" placeholder="Zip" required />
-          <Form.Control.Feedback type="invalid">
-            Please provide a valid zip.
-          </Form.Control.Feedback>
-        </Form.Group>
-      </Form.Row>
-      <Form.Group>
-        <Form.Check
-          required
-          label="Agree to terms and conditions"
-          feedback="You must agree before submitting."
-        />
-      </Form.Group>
-      <Button type="submit">Submit form</Button>
-    </Form>
-  );
-}
-
-render(<FormExample />); */
