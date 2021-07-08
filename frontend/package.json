@@ -1,0 +1,98 @@
+{
+  "name": "health_records_maintenance_and_tracking_Application",
+  "version": "1.0.0",
+  "description": "The Application which is used to maintain and Track medical records of the hospital",
+  "keywords": [
+    "hospital",
+    "medical",
+    "records",
+    "treatment",
+    "disease",
+    "doctors",
+    "patient",
+    "admin",
+    "project",
+    "maintenance",
+    "system",
+    "ajaija",
+    "Ajai",
+    "mohanraj",
+    "JA",
+    "AjaiJA",
+    "MohanRaj",
+    "Count",
+    "mail",
+    "pain",
+    "fever",
+    "consultant",
+    "tracking",
+    "Jam"
+  ],
+  "author": "Ajai J A",
+  "private": true,
+  "dependencies": {
+    "@date-io/date-fns": "^1.3.13",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/data-grid": "^4.0.0-alpha.31",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/pickers": "^3.3.10",
+    "@material-ui/x-grid-data-generator": "^4.0.0-alpha.31",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "aadhaar-validator": "^1.1.0",
+    "axios": "^0.21.1",
+    "bootstrap": "^5.0.1",
+    "date-fns": "^2.22.1",
+    "dateformat": "^4.5.1",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
+    "draftjs-to-markdown": "^0.6.0",
+    "gsap": "^3.7.0",
+    "html-to-draftjs": "^1.5.0",
+    "jquery": "^3.6.0",
+    "materialize-css": "^1.0.0",
+    "mdbreact": "^5.0.2",
+    "mui-datatables": "^3.7.7",
+    "node-sass": "^6.0.1",
+    "notistack": "^1.0.9",
+    "popper.js": "^1.16.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "^17.0.2",
+    "react-draft-wysiwyg": "^1.14.7",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-scroll": "^1.8.2",
+    "react-use": "^17.2.4",
+    "reactstrap": "^8.9.0",
+    "uuid": "^8.3.2",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "_id": "health_records_maintenance_and_tracking_Application@1.0.0"
+}

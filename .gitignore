@@ -1,0 +1,9 @@
+
+/backend/connections/.env
+
+/frontend/node_modules
+<<<<<<< HEAD
+=======
+/frontend/src/videos/*
+>>>>>>> 8f586a7 (Updated Landing Page)
+/frontend/build
