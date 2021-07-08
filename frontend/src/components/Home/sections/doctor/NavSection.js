@@ -116,13 +116,13 @@ export default function NavSection() {
                             </NavLink>
                             <span className="tooltip">Settings</span>
                         </li>
-                        <li>
+                      {/*   <li>
                             <NavLink activeClassName="active-admin-link" className="alink" to="/admin/help">
                                 <i className='bx bxs-help-circle'></i>
                                 <span className="links-name">Help</span>
                             </NavLink>
                             <span className="tooltip">Help</span>
-                        </li>
+                        </li> */}
                         <li>
                             <Link onClick={handleShow} className="alink" to="/admin/help">
                                 <i className="bx bx-log-out" id="log-out"></i>

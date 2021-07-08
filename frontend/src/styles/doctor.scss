@@ -651,9 +651,9 @@
         text-align: center;
     }
 
-    .card button {
+    .card .mobile-btn {
         width: 120px;
-        padding: 7px;
+        padding: 10px;
         margin: 5px 0;
         background-color: tomato;
         border: none;
@@ -664,7 +664,7 @@
         box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     }
 
-    .card:hover button {
+    .card:hover .mobile-btn {
         animation: buttonRotation 0.5s 0.5s linear;
     }
 

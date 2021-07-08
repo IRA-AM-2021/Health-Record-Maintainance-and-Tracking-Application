@@ -16,8 +16,9 @@ export default function DoctorsList(props) {
         )()
     },[])
 
-    let redirectURL=()=>{
-        window.location.href="/"
+    let redirectURL=(event)=>{
+        console.log(event.target.getAttribute('data-target'))
+        // window.location.href="/"
     }
 
     return (
@@ -41,19 +42,28 @@ export default function DoctorsList(props) {
 
                                     <DoctorHospitalDetails hospitalid={doctor.hospital_id} />
                                 </p>
-                                <button type="button">Contact me</button>
+                                <a className="mobile-btn" href={"tel:"+doctor.mobile_no}><i className="fas fa-phone-volume"></i> Contact me</a>
                                 <ul className="social-icons">
-                                    <li>
-                                        <p  data-target="1" onClick={redirectURL}><i className="fab fa-facebook-f"></i></p>
-                                    </li>
-                                    <li>
-                                        <p data-target="1" onClick={redirectURL}><i className="fab fa-twitter"></i></p>
-                                    </li>
-                                    <li>
-                                        <p data-target="1" onClick={redirectURL}><i className="fab fa-instagram"></i></p>
-                                    </li>
-                                    <li>
-                                        <p data-target="1" onClick={redirectURL}><i className="far fa-envelope-open"></i></p>
+                                    { 
+                                        doctor.fb_url!=="" ? 
+                                        <li>
+                                            <p onClick={redirectURL}><i data-target={doctor.fb_url} className="fab fa-facebook-f"></i></p>
+                                        </li> : ''
+                                    }
+                                    {
+                                        doctor.tweet_url!=="" ?
+                                        <li>
+                                            <p onClick={redirectURL}><i data-target={doctor.tweet_url} className="fab fa-twitter"></i></p>
+                                        </li> : ''
+                                    }
+                                    {
+                                        doctor.insta_url!=="" ?
+                                        <li>
+                                            <p onClick={redirectURL}><i data-target={doctor.insta_url} className="fab fa-instagram"></i></p>
+                                        </li> : ''
+                                    }
+                                    <li title="email">
+                                        <a href={"mailto:"+doctor.email}><i className="far fa-envelope-open"></i></a>
                                     </li>
                                 </ul>
                             </div>     
@@ -86,7 +96,7 @@ let DoctorHospitalDetails=(props)=>{
             {hospitalDetails.branch} ,<br />
             {hospitalDetails.pincode} <br />
 
-            Email : {hospitalDetails.email}
+            <b>Email</b> : {hospitalDetails.email}
         </p>
     )
 }
