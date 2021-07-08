@@ -168,6 +168,14 @@ class DepartmentView(APIView):
         serializer = DepartmentsSerializer(depts, many=True)
         return JsonResponse(serializer.data, safe=False)
 
+class HospitalDetailsView(APIView):
+    def get(self, request):
+        hospitalID = request.GET['hospital_id']
+        user = HospitalAccounts.objects.filter(
+            hospital_id=hospitalID).first()
+        serializer =HospitalAccountSerializer(user)
+        return Response(serializer.data)
+        
 class HospitalAccountView(viewsets.ModelViewSet):
     # queryset=HospitalAccounts.objects.all().order_by('-created_at')
     # queryset=HospitalAccounts.objects.all().filter()

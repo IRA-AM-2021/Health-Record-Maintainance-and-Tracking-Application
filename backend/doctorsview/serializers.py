@@ -6,7 +6,7 @@ class DoctorAccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = DoctorAccount
         fields = ("id", "name", "hospital_id", "dept", "app_id", "email", "password_before_verification",
-                  "mobile_no", "doctor_id", "joined_date", "created_at", "logo", "address","password", "email_Verified")
+                  "mobile_no", "background", "doctor_id", "joined_date", "created_at", "logo", "address","password", "email_Verified")
         
         """    extra_kwargs = {
             'password': {'write_only': True}
@@ -25,4 +25,4 @@ class CheckDoctorAccountAvailableSerializer(serializers.ModelSerializer):
     class Meta:
         model = DoctorAccount
         fields = ("id", "name", "hospital_id", "dept", "app_id", "email", "password_before_verification",
-                  "mobile_no", "doctor_id", "joined_date", "created_at", "logo", "address", "email_Verified")
+                  "mobile_no", "background",  "doctor_id", "joined_date", "created_at", "logo", "address", "email_Verified")

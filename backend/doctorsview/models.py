@@ -6,7 +6,10 @@ def upload_path(instance,filename):
     return '/'.join(['uploads/images/doctors',str(instance.app_id),filename])
 
 class DoctorAccount(models.Model):
-    logo = models.ImageField(upload_to=upload_path, blank=True, default='uploads/images/doctors/icon.png')
+    logo = models.ImageField(
+        upload_to=upload_path, blank=True, default='uploads/images/doctors/icon.png')
+    background = models.ImageField(
+        upload_to=upload_path, blank=True, default='uploads/images/doctors/bg.jpg')
     name = models.CharField(max_length=60)
     email = models.EmailField(max_length=100, unique=True)
     hospital_id = models.CharField(max_length=100, default='')

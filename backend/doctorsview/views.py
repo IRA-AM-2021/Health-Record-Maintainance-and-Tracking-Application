@@ -91,6 +91,12 @@ class DoctorView(APIView):
         serializer = CheckDoctorAccountAvailableSerializer(doctor)
         return Response(serializer.data)
 
+class DoctorsListView(APIView):
+    def get(self, request):
+        doctors = DoctorAccount.objects.all()
+        serializer = DoctorAccountSerializer(doctors, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
 class LogoutView(APIView):
     def post(self, request):
         response = Response()

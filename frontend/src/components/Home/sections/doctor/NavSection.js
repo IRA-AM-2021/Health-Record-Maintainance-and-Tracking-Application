@@ -29,7 +29,7 @@ export default function NavSection() {
                     credentials:'include'
                 })
                 let content=await response.json()
-                console.log(content)
+                // console.log(content)
                 let isErr=content.detail
                 if(isErr==="Unauthenticated"){
                     logout();
