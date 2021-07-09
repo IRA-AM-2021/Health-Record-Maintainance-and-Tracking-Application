@@ -14,6 +14,7 @@ import './styles/doctor.scss'
 import { enableSite } from './components/Storage.js'
 import HospitalAdminHomePage from './components/Home/HospitalAdminHomePage'
 import DoctorHomePage from './components/Home/DoctorHomePage'
+import PatientHomePage from './components/Home/PatientHomePage'
 import verifyDoctorEmail from './components/Home/sections/doctor/VerifyEmail'
 
 export const ActiveSite=React.createContext();
@@ -29,6 +30,7 @@ let Router=()=>{
                     <Route exact path="/" component={App} />
                     <Route path="/admin" component={HospitalAdminHomePage} />
                     <Route path="/doctor" component={DoctorHomePage} />
+                    <Route path="/patient" component={PatientHomePage} />
                     <Route path="/login" component={Login} /> 
                     <Route path="/Hospital-Registration" component={HospitalRegisterForm} />
                     <Route path="/Hospital-Login" component={HospitalLoginForm} />

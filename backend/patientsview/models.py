@@ -20,6 +20,7 @@ class PatientAccount(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     email_verified = models.BooleanField(default=False)
     mobile_verified = models.BooleanField(default=False)
+    otp_code=models.CharField(max_length=10,default='')
 
 class PatientsHistory(models.Model):
     hospital_id=models.CharField(max_length=100)
