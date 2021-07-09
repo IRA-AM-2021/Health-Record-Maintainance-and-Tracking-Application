@@ -21,9 +21,13 @@ from django.contrib.auth.hashers import make_password, check_password
 import jwt
 import json
 import uuid
+import os
 import vonage
 import random
 import math
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Create your views here.
 class PatientRegistrationView(CreateAPIView):
@@ -81,7 +85,7 @@ class PatientLoginSentOTPView(APIView):
             index = math.floor(random.random() * 10)
             generate_otp += str(digits[index])
 
-        client = vonage.Client(key="5e2c41de", secret="Fxov9o6rSmaFrlzF")
+        client = vonage.Client(key=os.environ.get("VONGAGE_API_KEY"), secret=os.environ.get("VONGAGE_API_SECRET"))
         sms = vonage.Sms(client)
         responseData = sms.send_message(
             {
@@ -180,7 +184,7 @@ class PatientLogoutView(APIView):
             index = math.floor(random.random() * 10)
             generate_otp += str(digits[index])
 
-        client = vonage.Client(key="5e2c41de", secret="Fxov9o6rSmaFrlzF")
+        client = vonage.Client(key="", secret="")
         sms = vonage.Sms(client)
         responseData = sms.send_message(
             {
