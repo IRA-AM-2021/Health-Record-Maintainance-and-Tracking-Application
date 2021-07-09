@@ -10,6 +10,7 @@ export default function NavSection() {
     const [ userID, setUserID ]=useState()
     const [ hospitalID, setHospitalID ]=useState()
     const [ logo,setLogo ]=useState("")
+    const [name,setName]=useState("")
     const [ email,setEmail ]=useState("")
     const [ is_email_Verified, setIsEmailVerified ]=useState(false)
     const [isLoading,setIsLoading]=useState(false);
@@ -40,6 +41,7 @@ export default function NavSection() {
                     setHospitalID(content.hospital_id)
                     setIsEmailVerified(content.email_Verified)
                     setEmail(content.email)
+                    setName(content.name)
                     setIsLoading(true)
                     // console.log(logo)
                 }
@@ -75,7 +77,7 @@ export default function NavSection() {
                     <div className="logo-content">
                         <div className="logo" style={{userSelect:"none", textAlign: 'center'}} >
                             <img src={logo} style={{cursor:"pointer"}} className="doctor-profile-img" />
-                            <div className="logo-name"><span>Dr. </span> Admin</div> 
+                            <div className="logo-name"><span>Dr.</span> {name}</div> 
                         </div>
                         <i className="bx bx-menu" onClick={maxNav} style={{fontSize:"35px"}} id="btn"></i>
                     </div>

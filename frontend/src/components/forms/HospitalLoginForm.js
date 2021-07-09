@@ -102,7 +102,7 @@ let HospitalLoginForm=()=>{
                     </Form.Group><br />
                     <div className="text-center" style={{lineHeight:"40px"}}>
                         <LoadingButton /><br />
-                        <Link to='/'>Forgot password?</Link><br />
+                        {/* <Link to='/'>Forgot password?</Link><br /> */}
                         <Link to='/Hospital-Registration' className="text-primary">Create New Account</Link>
                     </div>
                 </Form>

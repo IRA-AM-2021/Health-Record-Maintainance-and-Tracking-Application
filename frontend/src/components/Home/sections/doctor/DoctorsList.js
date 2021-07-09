@@ -29,7 +29,7 @@ export default function DoctorsList(props) {
                     {
                         doctorsList.map((doctor)=>(
                             <div className="card" key={doctor.id}>
-                                <img src="https://i.imgur.com/v1fzRXv.jpg" alt="top1" className="image-top" />
+                                <img src="https://images.unsplash.com/photo-1551554781-c46200ea959d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="top1" className="image-top" />
                                 <img src={"http://localhost:8000" + doctor.logo} alt="image1" className="profile-image" />
                                 <h1 className="fullname">{doctor.name}</h1>
                                 <h3 className="job">{doctor.dept}</h3>

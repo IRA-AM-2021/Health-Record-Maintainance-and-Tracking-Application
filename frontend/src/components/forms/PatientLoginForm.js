@@ -1,10 +1,6 @@
 import React,{ useEffect, useState, useRef, createRef, useContext } from 'react'
 import { BrowserRouter, Route ,Switch ,Link, useHistory, Redirect } from 'react-router-dom'
 import { Container, Button, Form, InputGroup } from 'react-bootstrap'
-import EmailIcon from '@material-ui/icons/Email'
-import HttpsIcon from '@material-ui/icons/Https'
-import LockOpenIcon from '@material-ui/icons/LockOpen';
-import NoEncryptionIcon from '@material-ui/icons/NoEncryption';
 
 let PatientLoginForm=()=>{
     const [ email, setEmail ]=useState('')
@@ -81,11 +77,11 @@ let PatientLoginForm=()=>{
                     <Form.Group style={{width:"70%",margin:"auto"}}>
                         <InputGroup hasValidation>
                             <InputGroup.Prepend>
-                                <label htmlFor="email" style={{cursor:"pointer"}}>
-                                    <InputGroup.Text style={{height:"45px"}}><EmailIcon /></InputGroup.Text>
+                                <label htmlFor="mobile" style={{cursor:"pointer"}}>
+                                    <InputGroup.Text style={{height:"45px"}}><i className="fa fa-phone" aria-hidden="true"></i></InputGroup.Text>
                                 </label>
                             </InputGroup.Prepend>
-                            <Form.Control isInvalid={isMailErr} style={{height:"45px"}} aria-label="email" aria-describedby="basic-addon1" name="email" onChange={e=>setEmail(e.target.value)} onInput={e=>setEmail(e.target.value)} type="email" className="mail" id="email" placeholder="Enter email" required/> {/*isInvalid*/} 
+                            <Form.Control isInvalid={isMailErr} style={{height:"45px"}} aria-describedby="basic-addon1" name="mobile_no" onChange={e=>setEmail(e.target.value)} onInput={e=>setEmail(e.target.value)} type="tel" className="mobile" id="mobile" placeholder="Enter Registered Mobile" required/> {/*isInvalid*/} 
                             <Form.Control.Feedback type="invalid">
                                 {err}
                             </Form.Control.Feedback> 

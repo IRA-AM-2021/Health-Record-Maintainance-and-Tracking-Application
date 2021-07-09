@@ -102,7 +102,7 @@ let DoctorLoginForm=()=>{
                     </Form.Group><br />
                     <div className="text-center" style={{lineHeight:"40px"}}>
                         <LoadingButton /><br />
-                        <Link to='/'>Forgot password?</Link><br />
+                        {/* <Link to='/'>Forgot password?</Link><br /> */}
                     </div>
                 </Form>
             </Container>
