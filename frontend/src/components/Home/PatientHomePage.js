@@ -6,6 +6,7 @@ let PatientHomePage=()=>{
     const [ userID, setUserID ]=useState()
     const [ hospitalID, setHospitalID ]=useState()
     const [ logo,setLogo ]=useState("")
+    const [ name,setName ]=useState("")
     const [ email,setEmail ]=useState("")
     const [show, setShow] = useState(false);
 
@@ -30,6 +31,7 @@ let PatientHomePage=()=>{
                     setLogo(content.logo)
                     setHospitalID(content.account_created_hospital_id)
                     setEmail(content.email)
+                    setName(content.patient_name)
                 }
             }
         )()
@@ -52,7 +54,7 @@ let PatientHomePage=()=>{
     return(
         <div className="patient-page">
             {
-                <NavSection userlogo={logo} hospitalid={hospitalID} userid={userID} />
+                <NavSection userlogo={logo} hospitalid={hospitalID} userid={userID} name={name} />
             }
         </div>
     );

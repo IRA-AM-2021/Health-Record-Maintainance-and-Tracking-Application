@@ -1,86 +1,13 @@
 import React, { useEffect, useState } from 'react'
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import dateFormat from 'dateformat'
 
+let Timeline = (props) => {
 
-    const items=[
-        {
-            "title": "Title 1",
-            "description":"cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "1 March 1990",
-        },
-        {
-            "title": "Title 2",
-            "description": "cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "2 March 1994",
-        },
-        {
-            "title": "Title 1",
-            "description":"cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "1 March 1990",
-        },
-        {
-            "title": "Title 2",
-            "description": "cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "2 March 1994",
-        },
-        {
-            "title": "Title 1",
-            "description":"cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "1 March 1990",
-        },
-        {
-            "title": "Title 2",
-            "description": "cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "2 March 1994",
-        },
-        {
-            "title": "Title 1",
-            "description":"cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "1 March 1990",
-        },
-        {
-            "title": "Title 2",
-            "description": "cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "2 March 1994",
-        },
-        {
-            "title": "Title 1",
-            "description":"cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "1 March 1990",
-        },
-        {
-            "title": "Title 2",
-            "description": "cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "2 March 1994",
-        },
-        {
-            "title": "Title 1",
-            "description":"cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "1 March 1990",
-        },
-        {
-            "title": "Title 2",
-            "description": "cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "2 March 1994",
-        },
-        {
-            "title": "Title 1",
-            "description":"cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "1 March 1990",
-        },
-        {
-            "title": "Title 2",
-            "description": "cardDetailedText: Men of the British Expeditionary Force (BEF) wade out to..",
-            "date": "2 March 1994",
-        }
-    ]
+    const [timeline,setTimeline]=useState([])
+    const [doctor,setDoctor]=useState("")
 
-const Timeline = (props) => {
-
-    const { items } = props;
-    
     const animateFromTo = (elem, direction) => {
         const offset = 1000;
         let x = 0;
@@ -118,46 +45,79 @@ const Timeline = (props) => {
     };
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
+        setTimeout(()=>{
+          
+            gsap.registerPlugin(ScrollTrigger);
 
-        gsap.utils.toArray(".animate").forEach(function (elem) {
-            hide(elem);
+            gsap.utils.toArray(".animate").forEach(function (elem) {
+                hide(elem);
 
-            ScrollTrigger.create({
-                trigger: elem,
-                onEnter: function () {
-                    animateFromTo(elem);
-                },
-                onEnterBack: function () {
-                    animateFromTo(elem, -1);
-                },
-                onLeave: function () {
-                    hide(elem);
-                },
+                ScrollTrigger.create({
+                    trigger: elem,
+                    onEnter: function () {
+                        animateFromTo(elem);
+                    },
+                    onEnterBack: function () {
+                        animateFromTo(elem, -1);
+                    },
+                    onLeave: function () {
+                        hide(elem);
+                    },
+                })
             })
+        },500)
+        getHistoryInfo()
+
+    },[props.userid])
+
+    let getHistoryInfo=async()=>{
+        if(!localStorage.getItem('JAM_DISPLAY_CONTENT')){
+            window.location.href="/"
+        }
+        else{
+            let response=await fetch(`http://localhost:8000/api/patient/patients-prescription-history/?aadhar_number=${props.userid}`,{
+                headers:{'Content-Type': 'application/json'}
+            })
+            let content=await response.json()
+            setTimeline(content)
+        }
+    }
+
+    let getDoctorName=(name)=>{
+
+        let doctorName=''
+
+        fetch(`http://localhost:8000/api/doctor/doctors-details/?doctor_id=${name}`)
+        .then(response => response.json())
+        .then(data => {
+            setDoctor(data.name)
         })
-    },[])
+        return doctor
+    }
 
     return(
         <div className="timeline">
             <ul>
-                {items.map((te, idx) => {
+                {timeline.map((history, idx) => {
                     return (
-                        <li key={`${te.title}_${te.date}`}>
-                            <div className="content">
+                        <li key={`${history.id}_${history.entered_date}`}>
+                            <div className={`content animate ${idx % 2 === 0 ? "slide_from_left" : "slide_from_right"}`}>
                                 <h3
                                     className={`animate ${
                                     idx % 2 === 0 ? "slide_from_left" : "slide_from_right"
                                     }`}
                                 >
-                                    {te.title}
+                                    {history.cause}
                                 </h3>
                                 <p
                                     className={`animate ${
                                     idx % 2 === 0 ? "slide_from_left" : "slide_from_right"
                                     }`}
                                 >
-                                    {te.description}
+                                    {history.description}
+
+                                    <br /><span className="text-success">Revisit Date : {history.revisit_date}</span>
+                                    <br /><span className="text-danger">By <span style={{fontFamily:"jokerman"}}>Dr.{getDoctorName(history.doctor_id)}</span></span>
                                 </p>
                             </div>
                             <div
@@ -165,7 +125,7 @@ const Timeline = (props) => {
                                 idx % 2 === 0 ? "slide_from_right" : "slide_from_left"
                             }`}
                             >
-                            <h4>{te.date}</h4>
+                            <h4>{dateFormat(history.entered_date, "mmmm dS, yyyy")}</h4>
                             </div>
                         </li>
                     );
@@ -175,5 +135,4 @@ const Timeline = (props) => {
         </div>
     )
 }
-
-                                    // <Timeline items={items} />
+export default Timeline

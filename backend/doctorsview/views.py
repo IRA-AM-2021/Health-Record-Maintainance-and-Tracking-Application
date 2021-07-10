@@ -159,6 +159,12 @@ class TokenVerifyView(APIView):
         }
         return response
 
+class DoctorDetailsView(APIView):
+    def get(self, request):
+        doctor=DoctorAccount.objects.filter(app_id=request.GET['doctor_id']).first()
+        serializer = DoctorAccountSerializer(doctor)
+        return Response(serializer.data)
+
 class LogoutView(APIView):
     def post(self, request):
         response = Response()
