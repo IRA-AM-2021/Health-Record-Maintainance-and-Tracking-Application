@@ -28,6 +28,8 @@ class DoctorAccount(models.Model):
     verify_token=models.CharField(max_length=250, default='')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    
+    
     # username = None
 
     # USERNAME_FIELD = 'email'
