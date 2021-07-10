@@ -241,7 +241,7 @@ let NavSection=(props)=>{
                     {props.name}
                 </Typography>
                 <div className={classes.grow} />
-                {/* <div className={classes.sectionDesktop}>
+                <div className={classes.sectionDesktop}>
                     <IconButton aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="secondary">
                         <MailIcon />
@@ -273,7 +273,7 @@ let NavSection=(props)=>{
                     >
                     <MoreIcon />
                     </IconButton>
-                </div> &nbsp; &nbsp; &nbsp; */}
+                </div> &nbsp; &nbsp; &nbsp;
                 <Button style={{background:"red",fontSize:"16px",textTransform:"capitalize",borderRadius:"10px"}} onClick={handleShow}><i className="bx bx-log-out" id="log-out"></i> Logout</Button>
                 <Modal show={show} onHide={handleClose} centered>
                     <Modal.Header closeButton>

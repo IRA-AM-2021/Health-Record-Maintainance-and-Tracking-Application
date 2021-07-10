@@ -15,7 +15,7 @@ export default function LiveUpdates({patientData}) {
 
     return (
         <div style={{marginTop:"45px"}} className="live-updates-under-admin">
-            <h5 className="text-center" style={{fontFamily:"'Racing Sans One',cursive",fontSize:"25px",paddingBottom:"5px"}}>Live Updates</h5>
+            <h5 className="text-center" style={{fontFamily:"'Racing Sans One',cursive",fontSize:"25px",paddingBottom:"5px"}}>Recent Updates</h5>
             <Link activeClass="active" to="secondInsideContainer" className="clickScroll" smooth={true} duration={5000} containerId="containerElement" style={{ display: 'none', margin: '20px' }}>click</Link>
             <Element name="test7" className="element live-updates-section" id="containerElement" style={{ position: 'relative',marginTop:"20px",paddingTop:"-20px",paddingBottom:"65px", height: '85vh', overflow: 'scroll', marginBottom: '30px'}}>
                 <div className="live-content-msg">

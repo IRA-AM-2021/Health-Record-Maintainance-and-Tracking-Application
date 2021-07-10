@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'react-bootst
 import { Tooltip } from 'reactstrap';
 import { Route, BrowserRouter, Link, NavLink, Switch } from 'react-router-dom'
 import { DefaultContent, ProfileContent, SettingsContent, BloodBankContent, DoctorContent, PatientContent, DepartmentContent, Footer, Greet, NotFound } from './Admin'
+import Working from './Working'
 
 export default function NavSection(props){
 
@@ -221,17 +222,17 @@ export default function NavSection(props){
                     <div className="content-admin"> 
                         <Switch>
                             {/* <Route exact path="/admin" component={DefaultContent} /> */}
-                            <Route path="/admin/dashboard" component={DefaultContent} />
+                            <Route path="/admin/dashboard" component={()=><DefaultContent hospitalid={props.hospitalid} />} />
                             <Route path="/admin/profile" component={()=><ProfileContent hospitalid={props.hospitalid} />} /> 
                             <Route path="/admin/doctors" component={()=><DoctorContent hospitalid={props.hospitalid} />} /> 
-                            <Route path="/admin/settings" component={SettingsContent} /> 
+                            <Route path="/admin/settings" component={Working} /> 
                             <Route path="/admin/patients" component={()=><PatientContent hospitalid={props.hospitalid} />} /> 
-                            <Route path="/admin/help" component={ProfileContent} /> 
-                            <Route path="/admin/calendar" component={ProfileContent} /> 
-                            <Route path="/admin/infra" component={ProfileContent} /> 
-                            <Route path="/admin/blood-bank" component={BloodBankContent} /> 
-                            <Route path="/admin/dept" component={DepartmentContent} /> 
-                            <Route path="*" component={DefaultContent} /> 
+                            <Route path="/admin/help" component={Working} /> 
+                            <Route path="/admin/calendar" component={Working} /> 
+                            <Route path="/admin/infra" component={Working} /> 
+                            <Route path="/admin/blood-bank" component={Working} /> 
+                            <Route path="/admin/dept" component={DepartmentContent} />
+                            <Route path="*" component={()=><DefaultContent hospitalid={props.hospitalid} />} /> 
                         </Switch>
                     </div>
                 </div>

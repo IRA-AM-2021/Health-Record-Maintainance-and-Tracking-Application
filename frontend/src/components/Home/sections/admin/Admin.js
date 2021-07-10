@@ -5,6 +5,7 @@ import BloodBank from'./BloodBank'
 import Doctor from'./Doctor'
 import Patient from'./Patient'
 import Department from'./Department'
+import Dashboard from './Dashboard'
 import { makeStyles } from '@material-ui/core/styles';
 import Alert from '@material-ui/lab/Alert';
 
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-let DefaultContent=()=>{
+let DefaultContent=(props)=>{
     const [ verifyStatus, setVerifyStatus ]=useState("")
     const classes = useStyles();
 
@@ -40,7 +41,7 @@ let DefaultContent=()=>{
                 : ''
             }
             <div className="default-content">
-                <h1>Default Content</h1>
+                <Dashboard hospitalid={props.hospitalid} />
             </div>
         </div>
     )

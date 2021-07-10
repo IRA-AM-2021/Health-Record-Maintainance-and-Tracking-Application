@@ -15,3 +15,175 @@
     background: linear-gradient(rgb(0, 17, 255), rgb(0, 217, 255));
     border-radius: 6px;
 }
+
+
+.chart {
+  height: 100vh;
+  width: auto;
+  padding-top: 20px;
+  text-align: center;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.63);
+  font-family: arial black, sans-serif;
+}
+
+.chart .grid-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 20px;
+}
+
+.chart .grid-count .count-display {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+  height: 150px;
+  width: 250px;
+  border-radius: 15px;
+  font-family: 'Akaya Telivigala', cursive;
+  -webkit-box-shadow: 0 2px 5px 5px rgba(163, 163, 163, 0.5);
+          box-shadow: 0 2px 5px 5px rgba(163, 163, 163, 0.5);
+  color: black;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.chart .grid-count .count-display:nth-child(1) {
+  background: linear-gradient(140deg, #fc5c00, #ffc787 100px, #ff5e00);
+  -webkit-animation: move-up .3s ease-in;
+          animation: move-up .3s ease-in;
+}
+
+.chart .grid-count .count-display:nth-child(2) {
+  background: linear-gradient(340deg, #fce300, #ffd891 200px, #ffd000);
+  -webkit-animation: move-up .5s ease-in;
+          animation: move-up .5s ease-in;
+}
+
+.chart .grid-count .count-display:nth-child(3) {
+  background: linear-gradient(140deg, #00fc2a, #b0ffae 100px, #61ff18);
+  -webkit-animation: move-up .7s ease-in;
+          animation: move-up .7s ease-in;
+}
+
+.chart .grid-count .count-display:nth-child(4) {
+  background: linear-gradient(160deg, #d200fc, #f375ff 180px, #ea00ff);
+  -webkit-animation: move-up .9s ease-in;
+          animation: move-up .9s ease-in;
+}
+
+.chart .grid-count .count-display:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.chart .chart-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -40px;
+}
+
+.chart .chart-display div {
+  -webkit-animation: chart .5s ease-in;
+          animation: chart .5s ease-in;
+}
+
+@-webkit-keyframes move-up {
+  from {
+    -webkit-box-shadow: 0 3px 50px black;
+            box-shadow: 0 3px 50px black;
+    color: transparent;
+    opacity: 0;
+    -webkit-transform: translateX(300px) scale(0.5) rotateX(360deg);
+            transform: translateX(300px) scale(0.5) rotateX(360deg);
+  }
+}
+
+@keyframes move-up {
+  from {
+    -webkit-box-shadow: 0 3px 50px black;
+            box-shadow: 0 3px 50px black;
+    color: transparent;
+    opacity: 0;
+    -webkit-transform: translateX(300px) scale(0.5) rotateX(360deg);
+            transform: translateX(300px) scale(0.5) rotateX(360deg);
+  }
+}
+
+@-webkit-keyframes chart {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes chart {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes resize {
+  from {
+    fill: red;
+  }
+  to {
+    fill: #ff4800;
+  }
+}
+
+@keyframes resize {
+  from {
+    fill: red;
+  }
+  to {
+    fill: #ff4800;
+  }
+}
+
