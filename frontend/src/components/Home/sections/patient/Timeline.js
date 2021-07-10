@@ -111,7 +111,19 @@ let Timeline = (props) => {
                                 </h3>
                                 <p
                                     className={`animate ${
-                                    idx % 2 === 0 ? "slide_from_l
+                                    idx % 2 === 0 ? "slide_from_left" : "slide_from_right"
+                                    }`}
+                                >
+                                    {history.description}
+
+                                    <br /><span className="text-success">Revisit Date : {history.revisit_date}</span>
+                                    <br /><span className="text-danger">By <span style={{fontFamily:"jokerman"}}>Dr.{getDoctorName(history.doctor_id)}</span></span>
+                                </p>
+                            </div>
+                            <div
+                            className={`time animate ${
+                                idx % 2 === 0 ? "slide_from_right" : "slide_from_left"
+                            }`}
                             >
                             <h4>{dateFormat(history.entered_date, "mmmm dS, yyyy")}</h4>
                             </div>
